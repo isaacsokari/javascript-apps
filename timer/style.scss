@@ -68,16 +68,12 @@ input {
   button {
     width: max-content;
     height: 2rem;
-    margin: 2rem;
+    margin: 1rem;
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
     border: none;
     outline: none;
     overflow: none;
     background-color: transparent;
-
-    &#pause {
-      display: none;
-    }
   }
 }

@@ -105,16 +105,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: -moz-max-content;
   width: max-content;
   height: 2rem;
-  margin: 2rem;
+  margin: 1rem;
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
   border: none;
   outline: none;
   overflow: none;
   background-color: transparent;
-}
-
-.buttons button#pause {
-  display: none;
 }
 /*# sourceMappingURL=style.css.map */
