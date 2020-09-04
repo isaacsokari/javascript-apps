@@ -113,4 +113,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   overflow: none;
   background-color: transparent;
 }
+
+.buttons button#pause {
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

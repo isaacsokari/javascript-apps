@@ -20,6 +20,13 @@ class Timer {
 
   start = () => {
     if (this.onStart) this.onStart(this.timeLeft);
+    if (
+      String(Number(this.durationInput.value)) === 'NaN' ||
+      !this.durationInput.value
+    ) {
+      alert('Enter a valid number');
+      return;
+    }
     this.tick();
     this.interval = setInterval(this.tick, 10);
     this.startButton.disabled = true;

@@ -75,5 +75,9 @@ input {
     outline: none;
     overflow: none;
     background-color: transparent;
+
+    &#pause {
+      display: none;
+    }
   }
 }
