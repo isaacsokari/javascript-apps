@@ -14,16 +14,46 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 h1 {
   margin: 1rem 0;
 }
 
+p {
+  max-width: 75%;
+  text-align: center;
+}
+
+.timer-container {
+  margin: 2rem auto;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .controls {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 input {
   margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.125rem;
   border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 10rem;
+  font-size: 2rem;
+  text-align: center;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -31,7 +61,19 @@ input {
   }
 }
 
-button {
-  padding: 0.25rem 0.5rem;
-  border-radius: 5px;
+.buttons {
+  width: max-content;
+  height: max-content;
+
+  button {
+    width: max-content;
+    height: 2rem;
+    margin: 2rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    overflow: none;
+    background-color: transparent;
+  }
 }

@@ -1,39 +1,55 @@
 class Timer {
-  constructor(durationInput, startButton, pauseButton, callbacks) {
+  constructor(durationInput, startButton, pauseButton, stopButton, callbacks) {
     this.durationInput = durationInput;
     this.startButton = startButton;
     this.pauseButton = pauseButton;
+    this.stopButton = stopButton;
 
     if (typeof callbacks === 'object') {
       this.onStart = callbacks.onStart;
       this.onTick = callbacks.onTick;
       this.onComplete = callbacks.onComplete;
+      this.onPause = callbacks.onPause;
+      this.onStop = callbacks.onStop;
     }
 
     this.startButton.addEventListener('click', this.start);
     this.pauseButton.addEventListener('click', this.pause);
+    this.stopButton.addEventListener('click', this.stop);
   }
 
   start = () => {
-    if (this.onStart) this.onStart();
+    if (this.onStart) this.onStart(this.timeLeft);
     this.tick();
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 10);
     this.startButton.disabled = true;
+    this.pauseButton.disabled = false;
+    this.stopButton.disabled = false;
   };
 
   tick = () => {
-    if (this.onTick) this.onTick();
+    if (this.onTick) this.onTick(this.timeLeft);
     this.timeLeft <= 0
       ? (() => {
           this.pause();
           if (this.onComplete) this.onComplete();
         })()
-      : (this.timeLeft = this.timeLeft - 1);
+      : (this.timeLeft = this.timeLeft - 0.01);
   };
 
   pause = () => {
+    this.onPause(this.timeLeft);
     clearInterval(this.interval);
     this.startButton.disabled = false;
+    this.pauseButton.disabled = true;
+  };
+
+  stop = () => {
+    this.onStop();
+    clearInterval(this.interval);
+    this.startButton.disabled = false;
+    this.stopButton.disabled = true;
+    this.pauseButton.disabled = true;
   };
 
   get timeLeft() {
@@ -41,6 +57,6 @@ class Timer {
   }
 
   set timeLeft(time) {
-    this.durationInput.value = time;
+    this.durationInput.value = time.toFixed(2);
   }
 }

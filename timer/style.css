@@ -24,16 +24,66 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow-x: hidden;
 }
 
 h1 {
   margin: 1rem 0;
 }
 
+p {
+  max-width: 75%;
+  text-align: center;
+}
+
+.timer-container {
+  margin: 2rem auto;
+  position: relative;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.timer-container .controls {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 input {
   margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.125rem;
   border-radius: 5px;
+  border: none;
+  outline: none;
+  width: 10rem;
+  font-size: 2rem;
+  text-align: center;
 }
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
@@ -41,8 +91,26 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
           appearance: none;
 }
 
-button {
+.buttons {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.buttons button {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: 2rem;
+  margin: 2rem;
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
+  border: none;
+  outline: none;
+  overflow: none;
+  background-color: transparent;
 }
 /*# sourceMappingURL=style.css.map */
