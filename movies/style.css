@@ -1,0 +1,64 @@
+.tutorial {
+  width: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+figure.image {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+figure .image img {
+  width: 128px;
+}
+
+.notification {
+  margin-top: 20px !important;
+}
+
+.title .icon {
+  margin-left: 15px;
+}
+
+.hero {
+  margin-bottom: 20px;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.dropdown-item img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.movies-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+#left-autocomplete,
+#right-autocomplete {
+  display: flex;
+  flex-direction: column;
+  /* max-width: 50%; */
+}
+
+input {
+  margin-bottom: 1rem;
+}
+
+.columns {
+  padding: 0 1.5rem;
+}
