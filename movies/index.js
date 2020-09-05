@@ -98,15 +98,18 @@ const runComparison = () => {
     messsage.className = 'notification is-success is-light';
     messsage.innerHTML = `${leftMovie.Title.toUpperCase()} WINS!!!
       `;
+    scrollToTop();
   } else if (leftWins < rightWins) {
     const messsage = document.querySelector('#message');
     messsage.className = 'notification is-success is-light';
     messsage.innerHTML = `${rightMovie.Title.toUpperCase()} WINS!!!
       `;
+    scrollToTop();
   } else {
     const messsage = document.querySelector('#message');
     messsage.className = 'notification is-warning is-light';
     messsage.innerHTML = `WE HAVE A DRAW :(`;
+    scrollToTop();
   }
 };
 
@@ -164,4 +167,10 @@ const movieTemplate = (movieDetail) => {
     <p class="subtitle">IMDB Votes</p>
     </article>
   `;
+};
+
+const scrollToTop = () => {
+  // document.body.scrollTop = 0; // For Safari
+  // document.documentElement.scrollTop = 0;
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 };
