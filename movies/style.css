@@ -1,5 +1,6 @@
 .tutorial {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   text-align: center;
   margin: auto;
 }
@@ -42,12 +43,6 @@ figure .image img {
   margin-right: 10px;
 }
 
-.movies-container {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-}
-
 #left-autocomplete,
 #right-autocomplete {
   display: flex;
@@ -56,9 +51,18 @@ figure .image img {
 }
 
 input {
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
 }
 
 .columns {
   padding: 0 1.5rem;
+}
+
+@media (max-width: 576px) {
+  article.media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
