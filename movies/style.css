@@ -1,3 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  /* padding: 0; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .tutorial {
   width: 100%;
   max-width: 600px;
@@ -53,6 +66,7 @@ figure .image img {
 input {
   margin: 1rem 0;
   border-radius: 4px;
+  padding: 0.5rem;
 }
 
 .columns {

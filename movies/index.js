@@ -8,6 +8,7 @@ const autoCompleteConfig = {
     ${movie.Title}
     `;
   },
+  inputPlaceholder: 'Enter Movie Name',
 
   inputValue(movie) {
     return movie.Title;
