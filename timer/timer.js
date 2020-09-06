@@ -20,10 +20,7 @@ class Timer {
 
   start = () => {
     if (this.onStart) this.onStart(this.timeLeft);
-    if (
-      String(Number(this.durationInput.value)) === 'NaN' ||
-      !this.durationInput.value
-    ) {
+    if (isNaN(this.durationInput.value) || !this.durationInput.value) {
       alert('Enter a valid number');
       return;
     }
@@ -40,6 +37,7 @@ class Timer {
       ? (() => {
           this.pause();
           if (this.onComplete) this.onComplete();
+          this.stopButton.disabled = true;
         })()
       : (this.timeLeft = this.timeLeft - 0.01);
   };

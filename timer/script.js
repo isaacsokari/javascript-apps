@@ -6,43 +6,44 @@ const circle = document.querySelector('circle');
 const perimeter = circle.getAttribute('r') * 2 * Math.PI;
 
 let duration;
+let step;
+let wasPaused = false;
 let cache = { offset: 0 };
 
 const myTimer = new Timer(durationInput, startButton, pauseButton, stopButton, {
   onStart(totalDuration) {
-    duration = totalDuration;
+    if (totalDuration !== cache.pausedAt) {
+      duration = totalDuration;
+      step = parseFloat(perimeter / (duration * 100));
+      cache.offset = 0;
+    }
+    
+    if (!wasPaused) step = parseFloat(perimeter / (duration * 100));
   },
   onTick(timeLeft) {
-    let offset = -(((duration - timeLeft) / duration) * perimeter);
-
-    circle.setAttribute('stroke-dashoffset', offset);
+    cache.offset -= step;
+    circle.setAttribute('stroke-dashoffset', cache.offset);
   },
 
   onPause(timeLeft) {
-    const { initialDuration, offset, elapsed } = cache;
-
-    /*     cache.pausedAt = timeLeft;
-
-    cache.initialDuration = initialDuration ? initialDuration : duration;
-
-    cache.offset = offset
-      ? Number(offset) - Math.abs(Number(circle.getAttribute('stroke-dashoffset')).toFixed(2))
-      : +Number(circle.getAttribute('stroke-dashoffset')).toFixed(2);
-
-      console.log(cache.offset)
-    cache.elapsed = elapsed
-      ? elapsed + (duration - timeLeft).toFixed(2)
-      : (duration - timeLeft).toFixed(2); */
+    wasPaused = true;
+    cache.pausedAt = timeLeft;
   },
 
   onStop() {
     durationInput.value = Math.floor(duration);
+    wasPaused = false;
+    cache.pausedAt = undefined;
+    cache.offset = 0;
     circle.setAttribute('stroke-dashoffset', 0);
     circle.setAttribute('stroke-dasharray', perimeter);
   },
 
   onComplete() {
     durationInput.value = Math.floor(duration);
+    wasPaused = false;
+    cache.offset = 0;
+    cache.pausedAt = undefined;
     circle.setAttribute('stroke-dashoffset', 0);
     circle.setAttribute('stroke-dasharray', perimeter);
   },
