@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .row {
   margin-top: 25vh;
   display: flex;
@@ -15,6 +19,11 @@ input {
   justify-content: space-between;
 }
 
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 p {
   max-width: 100%;
   word-wrap: break;
@@ -27,8 +36,10 @@ p::first-line {
 }
 
 #message-container {
-  min-width: max-content;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .toast-success {
