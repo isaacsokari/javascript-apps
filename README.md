@@ -1,2 +1,9 @@
-# javascript-apps
-JavaScript apps built while practising.
+# Countdown Timer
+
+A simple countdown timer app.
+
+## Used
+
+- HTML
+- CSS
+- JavaScript
