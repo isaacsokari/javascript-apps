@@ -11,24 +11,32 @@
       integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
       crossorigin="anonymous"
     />
+    <style>
+      .row {
+        margin-top: 25vh;
+      }
+    </style>
   </head>
   <body>
     <div class="row">
       <div class="col s8 offset-s2">
-        <div class="card-panel">
+        <div id="message-container" class="card-panel hide">
+          <h1></h1>
+          <div><a href="./index.html">Create your own secret message</a></div>
+        </div>
+
+        <div id="message-form" class="card-panel">
           <form>
             <label for="message-input">Enter a Secret Message</label>
             <input type="text" id="message-input" />
             <button type="submit" class="btn">Create</button>
           </form>
         </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col s8 offset-s2">
-        Share this link with a friend
-        <input type="text" disabled id="link-input" />
+        <div id="link-container" class="card-panel hide">
+          Share this link with a friend
+          <input type="text" id="link-input" />
+        </div>
       </div>
     </div>
 
