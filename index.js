@@ -25,11 +25,18 @@ form.addEventListener('submit', (event) => {
   link.value = `${window.location}#${encrypted}`;
   link.select();
 
-  const copyButton = linkContainer.querySelector('button');
+  const copyButton = linkContainer.querySelector('#copyLink');
+  const newMessageBtn = linkContainer.querySelector('#newMessage');
 
   copyButton.addEventListener('click', () => {
     link.select();
     document.execCommand('copy');
     M.toast({ html: 'Link Copied to Clipboard' });
+  });
+
+  newMessageBtn.addEventListener('click', () => {
+    linkContainer.classList.add('hide');
+    messageInput.value = '';
+    messageForm.classList.remove('hide');
   });
 });

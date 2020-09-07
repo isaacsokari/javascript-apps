@@ -15,6 +15,15 @@
       .row {
         margin-top: 25vh;
       }
+
+      input {
+        margin-bottom: 1rem !important;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+      }
     </style>
   </head>
   <body>
@@ -36,7 +45,10 @@
         <div id="link-container" class="card-panel hide">
           Share this link with a friend
           <input type="text" id="link-input" />
-          <button class="btn">Copy to Clipboard</button>
+          <div class="buttons">
+            <button id="copyLink" class="btn">Copy to Clipboard</button>
+            <button id="newMessage" class="btn">New Message</button>
+          </div>
         </div>
       </div>
     </div>
