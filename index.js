@@ -24,4 +24,11 @@ form.addEventListener('submit', (event) => {
 
   link.value = `${window.location}#${encrypted}`;
   link.select();
+
+  const copyButton = linkContainer.querySelector('button');
+
+  copyButton.addEventListener('click', () => {
+    document.execCommand('copy');
+    M.toast({ html: 'Link Copied to Clipboard' });
+  });
 });
