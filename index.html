@@ -18,33 +18,79 @@
 
       input {
         margin-bottom: 1rem !important;
+        overflow: hidden;
+        height: max-content;
       }
 
       .buttons {
         display: flex;
         justify-content: space-between;
       }
+
+      p {
+        max-width: 100%;
+        word-wrap: break;
+        overflow-x: hidden;
+        overflow-wrap: break-word;
+      }
+
+      p::first-line {
+        font-weight: 500;
+      }
+
+      #message-container {
+        width: max-content;
+        max-width: 100%;
+      }
+
+      .toast-success {
+        background-color: #54be8b;
+        color: #f4f4f4;
+      }
+
+      .toast-danger {
+        background-color: #be5454;
+        color: #f4f4f4;
+      }
+
+      @media screen and (max-width: 576px) {
+        .buttons {
+          flex-direction: column;
+        }
+        .buttons button {
+          margin: 1rem 0;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="row">
-      <div class="col s8 offset-s2">
+      <div class="col s10 m8 offset-s1 offset-m2">
         <div id="message-container" class="card-panel hide">
-          <h1></h1>
+          <h1>Your Message</h1>
+          <p></p>
           <div><a href="./index.html">Create your own secret message</a></div>
         </div>
 
         <div id="message-form" class="card-panel">
           <form>
-            <label for="message-input">Enter a Secret Message</label>
-            <input type="text" id="message-input" />
+            <label for="message-input"
+              >Enter a Secret Message (280 characters)
+            </label>
+            <input
+              type="text"
+              id="message-input"
+              maxlength="280"
+              placeholder="Enter Message"
+              required
+            />
             <button type="submit" class="btn">Create</button>
           </form>
         </div>
 
         <div id="link-container" class="card-panel hide">
           Share this link with a friend
-          <input type="text" id="link-input" />
+          <input type="text" id="link-input" readonly />
           <div class="buttons">
             <button id="copyLink" class="btn">Copy to Clipboard</button>
             <button id="newMessage" class="btn">New Message</button>
