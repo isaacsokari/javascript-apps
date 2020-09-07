@@ -1,0 +1,51 @@
+.row {
+  margin-top: 25vh;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  margin-bottom: 1rem !important;
+  overflow: hidden;
+  height: max-content;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  max-width: 100%;
+  word-wrap: break;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+p::first-line {
+  font-weight: 500;
+}
+
+#message-container {
+  min-width: max-content;
+  max-width: 100%;
+}
+
+.toast-success {
+  background-color: #54be8b;
+  color: #f4f4f4;
+}
+
+.toast-danger {
+  background-color: #be5454;
+  color: #f4f4f4;
+}
+
+@media screen and (max-width: 576px) {
+  .buttons {
+    flex-direction: column;
+  }
+  .buttons button {
+    margin: 1rem 0;
+  }
+}
