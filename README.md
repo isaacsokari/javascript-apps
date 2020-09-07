@@ -1,2 +1,3 @@
-# javascript-apps
-JavaScript apps built while practising.
+# Secret Message
+
+A simple vanilla javascript app to share encrypted messages as links.
