@@ -28,6 +28,7 @@ form.addEventListener('submit', (event) => {
   const copyButton = linkContainer.querySelector('button');
 
   copyButton.addEventListener('click', () => {
+    link.select();
     document.execCommand('copy');
     M.toast({ html: 'Link Copied to Clipboard' });
   });
