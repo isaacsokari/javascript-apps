@@ -5,6 +5,7 @@ const chokidar = require('chokidar');
 const program = require('caporal');
 const { start } = require('repl');
 const fs = require('fs');
+const { spawn } = require('child_process');
 
 program
   .version('0.0.1')
@@ -19,7 +20,7 @@ program
     }
 
     const start = debounce(() => {
-      console.log("starting user's program");
+      spawn('node', [name], { stdio: 'inherit' });
     }, 100);
 
     chokidar
