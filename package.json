@@ -1,0 +1,27 @@
+{
+  "name": "javascript-apps",
+  "version": "1.0.0",
+  "description": "This is a command line project runner built using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaacsokari/javascript-apps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "watchit": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/isaacsokari/javascript-apps/issues"
+  },
+  "homepage": "https://github.com/isaacsokari/javascript-apps#readme",
+  "dependencies": {
+    "caporal": "^1.4.0",
+    "chokidar": "^3.4.2"
+  }
+}
