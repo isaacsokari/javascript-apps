@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/isaacsokari/javascript-apps/issues"
   },
-  "homepage": "https://github.com/isaacsokari/javascript-apps#readme"
+  "homepage": "https://github.com/isaacsokari/javascript-apps#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
 }
