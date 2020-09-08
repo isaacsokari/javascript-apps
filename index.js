@@ -9,13 +9,13 @@ fs.readdir(process.cwd(), async (err, filenames) => {
     console.log(err);
   }
 
-  for (let name of filenames) {
-    try {
-      const stats = await lstat(name);
+  const statPromises = filenames.map((name) => lstat(name));
 
-      console.log(name, stats.isFile());
-    } catch (err) {
-      console.log(err);
-    }
+  const allStats = await Promise.all(statPromises);
+
+  for (let stat of allStats) {
+    const index = allStats.indexOf(stat);
+
+    console.log(filenames[index], stat.isFile());
   }
 });
