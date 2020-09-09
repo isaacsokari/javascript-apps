@@ -82,18 +82,9 @@ class UsersRepository {
         }
       }
 
-      if (found) console.log(record);
+      if (found) return record;
     }
   }
 }
 
-const test = async () => {
-  const repo = new UsersRepository('users.json');
-
-  await repo.getOneBy({
-    // email: 'newemail@example.com',
-    password: 'newPassword',
-  });
-};
-
-test();
+module.exports = new UsersRepository('users.json');
