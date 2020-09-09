@@ -11,8 +11,9 @@ app.use(
   })
 );
 
-app.get('/', (req, res) => {
-  res.send(`<h1>hi there, your id is ${req.session.userId}</h1>
+app.get('/signup', (req, res) => {
+  res.send(`
+  <!-- <h1>hi there, your id is ${req.session.userId}</h1> -->
   <form method="post">
   <input type="email" name="email" placeholder="Enter Email Address" />
   <input type="password" name="password" placeholder="Enter password" />
@@ -26,7 +27,7 @@ app.get('/', (req, res) => {
 `);
 });
 
-app.post('/', async (req, res) => {
+app.post('/signup', async (req, res) => {
   const { email, password, passwordConfirm } = req.body;
 
   const existingUser = await usersRepo.getOneBy({ email });
@@ -46,6 +47,40 @@ app.post('/', async (req, res) => {
   req.session.userId = user.id;
 
   res.send('<h1>Account Created</h1>');
+});
+
+app.get('/signout', (req, res) => {
+  req.session = null;
+
+  res.send('You are signed out');
+});
+
+app.get('/signin', (req, res) => {
+  res.send(`
+  <form method="post">
+  <input type="email" name="email" placeholder="Enter Email Address" />
+  <input type="password" name="password" placeholder="Enter password" />
+  <button type="submit">Sign In</button>
+</form>
+  `);
+});
+
+app.post('/signin', async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await usersRepo.getOneBy({ email });
+
+  if (!user) {
+    return res.send('Email not found');
+  }
+
+  if (user.password !== password) {
+    return res.send('Invalid Password');
+  }
+
+  req.session.userId = user.id;
+
+  res.send('You are signed in');
 });
 
 app.listen(3000, () => {
