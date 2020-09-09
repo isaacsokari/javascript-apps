@@ -1,22 +1,12 @@
 const express = require('express');
 const usersRepo = require('../../repositories/users');
+const signupTemplate = require('../../views/admin/auth/signup');
+const signinTemplate = require('../../views/admin/auth/signin');
 
 const router = express.Router();
 
 router.get('/signup', (req, res) => {
-  res.send(`
-  <!-- <h1>hi there, your id is ${req.session.userId}</h1> -->
-  <form method="post">
-  <input type="email" name="email" placeholder="Enter Email Address" />
-  <input type="password" name="password" placeholder="Enter password" />
-  <input
-    type="password"
-    name="passwordConfirm"
-    placeholder="Re-enter password"
-  />
-  <button type="submit">Sign Up</button>
-</form>
-`);
+  res.send(signupTemplate({ req }));
 });
 
 router.post('/signup', async (req, res) => {
@@ -48,13 +38,7 @@ router.get('/signout', (req, res) => {
 });
 
 router.get('/signin', (req, res) => {
-  res.send(`
-  <form method="post">
-  <input type="email" name="email" placeholder="Enter Email Address" />
-  <input type="password" name="password" placeholder="Enter password" />
-  <button type="submit">Sign In</button>
-</form>
-  `);
+  res.send(signinTemplate());
 });
 
 router.post('/signin', async (req, res) => {
@@ -78,6 +62,5 @@ router.post('/signin', async (req, res) => {
 
   res.send('You are signed in');
 });
-
 
 module.exports = router;
