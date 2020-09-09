@@ -33,6 +33,12 @@ app.post('/', async (req, res) => {
     return res.send('passwords do not match');
   }
 
+  // create user to represent this person
+  const userId = await usersRepo.create({ email, password });
+
+  // store the id in the users cookie
+  
+  
   res.send('<h1>Account Created</h1>');
 });
 
