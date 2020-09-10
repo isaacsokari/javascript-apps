@@ -24,7 +24,7 @@ module.exports = ({ req, errors }) => {
                 <input required class="input" placeholder="Password Confirmation" name="passwordConfirmation" type="password" />
                 <p class="help is-danger">${getErrors(
                   errors,
-                  'passwordConfirmation'
+                  'passwordConfirm'
                 )}</p>
               </div>
               <button class="button is-primary">Submit</button>
