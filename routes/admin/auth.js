@@ -14,26 +14,36 @@ router.get('/signup', (req, res) => {
 router.post(
   '/signup',
   [
-    check('email').trim().normalizeEmail().isEmail(),
-    check('password').trim().isLength({ min: 4, max: 20 }),
-    check('passwordConfirm').trim().isLength({ min: 4, max: 20 }),
+    check('email')
+      .trim()
+      .normalizeEmail()
+      .isEmail()
+      .withMessage('Please enter a valid email.')
+      .custom(async (email) => {
+        const existingUser = await usersRepo.getOneBy({ email });
+
+        if (existingUser) {
+          throw new Error('Email already exists');
+        }
+      }),
+    check('password')
+      .trim()
+      .isLength({ min: 4, max: 20 })
+      .withMessage('Password must be between 4 and 20 characters'),
+    check('passwordConfirm')
+      .trim()
+      .isLength({ min: 4, max: 20 })
+      .withMessage('Password must be between 4 and 20 characters')
+      .custom(async (passwordConfirm, { req }) => {
+        if (passwordConfirm !== req.body.password)
+          throw new Error('Passwords do not match');
+      }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
-
     console.log(errors);
 
     const { email, password, passwordConfirm } = req.body;
-
-    const existingUser = await usersRepo.getOneBy({ email });
-
-    if (existingUser) {
-      return res.send('Email in use');
-    }
-
-    if (password !== passwordConfirm) {
-      return res.send('passwords do not match');
-    }
 
     // create user to represent this person
     const user = await usersRepo.create({ email, password });
