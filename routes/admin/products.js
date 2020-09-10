@@ -22,14 +22,10 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
 
-    console.log(req.file, req.body);
+    const image = req.file.buffer.toString('base64');
+    const { title, price } = req.body;
 
-    if (!errors.isEmpty()) {
-    }
-
-    const { title, price, image } = req.body;
-
-    // await productsRepo.create({ title, price, image });
+    await productsRepo.create({ title, price, image });
     res.send('submitted');
   }
 );
