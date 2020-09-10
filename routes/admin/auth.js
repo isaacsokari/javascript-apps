@@ -21,7 +21,6 @@ router.get('/signup', (req, res) => {
 router.post(
   '/signup',
   [requireEmail, checkPassword, confirmPasswordsMatch],
-
   async (req, res) => {
     const errors = validationResult(req);
 
@@ -29,11 +28,11 @@ router.post(
       return res.send(signupTemplate({ req, errors }));
     }
 
-    const { email, password, passwordConfirm } = req.body;
+    const { email, password } = req.body;
 
     // create user to represent this person
     const user = await usersRepo.create({ email, password });
-
+    
     // store the id in the users cookie
     req.session.userId = user.id;
 
