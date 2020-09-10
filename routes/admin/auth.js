@@ -31,7 +31,7 @@ router.post(
     // store the id in the users cookie
     req.session.userId = user.id;
 
-    res.send('<h1>Account Created</h1>');
+    res.redirect('/admin/products');
   }
 );
 
@@ -56,7 +56,7 @@ router.post(
 
     req.session.userId = user.id;
 
-    res.send('You are signed in');
+    res.redirect('/admin/products');
   }
 );
 
