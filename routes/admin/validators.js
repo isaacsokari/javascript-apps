@@ -63,5 +63,5 @@ module.exports = {
     .trim()
     .toFloat()
     .isFloat({ min: 1 })
-    .withMessage('Price must be at least 1.00'),
+    .withMessage('Price must be a number greater than 1'),
 };
