@@ -11,7 +11,7 @@ module.exports = ({ errors }) => {
               <h1 class="title">Sign in</h1>
               <div class="field">
                 <label class="label">Email</label>
-                <input required class="input" placeholder="Email" name="email" />
+                <input required class="input" placeholder="Email" name="email" type="email" />
                 <p class="help is-danger">${getErrors(errors, 'email')}</p>
               </div>
               <div class="field">
