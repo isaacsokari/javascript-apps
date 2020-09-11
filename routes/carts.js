@@ -33,10 +33,10 @@ router.post('/cart/products', async (req, res) => {
 
 router.get('/cart', async (req, res) => {
   if (!req.session.cartId) {
-    cart = await cartsRepo.create({ items: [] });
+    const cart = await cartsRepo.create({ items: [] });
     req.session.cartId = cart.id;
 
-    res.send(cartShowTemplate({ items: cart.items }));
+    return res.send(cartShowTemplate({ items: cart.items }));
   }
 
   const cart = await cartsRepo.getOne(req.session.cartId);

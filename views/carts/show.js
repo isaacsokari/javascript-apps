@@ -39,8 +39,9 @@ module.exports = ({ items }) => {
     })
     .join('');
 
-  return layout({
-    content: `
+  return totalPrice
+    ? layout({
+        content: `
       <div id="cart" class="container">
         <div class="columns">
           <div class="column"></div>
@@ -61,5 +62,22 @@ module.exports = ({ items }) => {
         </div>
       </div>
     `,
-  });
+      })
+    : layout({
+        content: `
+        <div id="cart" class="container">
+          <div class="columns">
+            <div class="column"></div>
+            <div class="column is-four-fifths">
+              <h3 class="subtitle"><b>Shopping Cart</b></h3>
+              <div class="total message is-info">
+                  <h1 class="title is-info">There are no items in your cart</h1>
+                  <a class="link" href="/">Click Here to view all the Products</a>
+              </div>
+            </div>
+            <div class="column"></div>
+          </div>
+        </div>
+      `,
+      });
 };
