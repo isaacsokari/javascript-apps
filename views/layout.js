@@ -19,10 +19,10 @@ module.exports = ({ content }) => {
               <div>
                 <ul class="social">
                   <li>
-                    <a href=""><i class="fa fa-phone"></i>+1 555 987 6543</a>
+                    <a href=""><i class="fa fa-phone"></i>+1 234 567 8912</a>
                   </li>
                   <li>
-                    <a href=""><i class="fa fa-envelope"></i> shop@myshop.com</a>
+                    <a href=""><i class="fa fa-envelope"></i> shop@example.com</a>
                   </li>
                 </ul>
               </div>
@@ -41,7 +41,7 @@ module.exports = ({ content }) => {
             <div class="container navbar-container">
               <div>
                 <a href="/">
-                  <h3 class="title">EComm Shop</h3>
+                  <h3 class="title">Shop</h3>
                 </a>
               </div>
               <div class="navbar-item">
