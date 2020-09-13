@@ -41,6 +41,15 @@ router.get('/cart', async (req, res) => {
 
   const cart = await cartsRepo.getOne(req.session.cartId);
 
+  // if cartId on cookie has expired, create a new cart and replace it
+  if (!cart) {
+    req.session.cartId = null;
+    const cart = await cartsRepo.create({ items: [] });
+    req.session.cartId = cart.id;
+
+    return res.send(cartShowTemplate({ items: cart.items }));
+  }
+
   for (let item of cart.items) {
     const product = await productsRepo.getOne(item.id);
 
