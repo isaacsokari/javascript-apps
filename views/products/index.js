@@ -5,9 +5,9 @@ module.exports = ({ products }) => {
     .map((product) => {
       return `
         <div class="column is-one-quarter">
-          <div class="card product-card">
+          <div class="card product-card box" style="height: 28rem; display: flex; flex-direction: column; justify-content: space-between">
             <figure>
-              <img src="data:image/png;base64, ${product.image}"/>
+              <img src="data:image/png;base64, ${product.image}" style="height:10rem; object-fit:cover;"/>
             </figure>
             <div class="card-content">
               <h3 class="subtitle">${product.title}</h3>
