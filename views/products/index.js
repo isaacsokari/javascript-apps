@@ -7,7 +7,7 @@ module.exports = ({ products }) => {
         <div class="column is-one-quarter">
           <div class="card product-card box" style="height: 28rem; display: flex; flex-direction: column; justify-content: space-between">
             <figure>
-              <img src="data:image/png;base64, ${product.image}" style="height:10rem; object-fit:cover;"/>
+              <img src="data:image/png;base64, ${product.image}" style="height:10rem; object-fit:contain;"/>
             </figure>
             <div class="card-content">
               <h3 class="subtitle">${product.title}</h3>
@@ -31,7 +31,7 @@ module.exports = ({ products }) => {
     content: `
       <section class="banner">
         <div class="container">
-          <div class="columns is-centered">
+          <div class="columns is-centered is-hidden-mobile">
             <img src="/images/banner.jpg" />
           </div>
         </div>
@@ -43,7 +43,7 @@ module.exports = ({ products }) => {
             <div class="column "></div>
             <div class="column is-four-fifths">
               <div>
-                <h2 class="title text-center">Featured Items</h2>
+                <h2 class="title has-text-centered">Featured Items</h2>
                 <div class="columns products">
                   ${renderedProducts}  
                 </div>

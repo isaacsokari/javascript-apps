@@ -9,12 +9,12 @@ module.exports = ({ content }) => {
         
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
         <link href="/css/main.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
       </head>
 
       <body>
         <header>
-          <nav class="navbar navbar-top">
+          <nav class="navbar navbar-top is-hidden-mobile">
             <div class="container navbar-container">
               <div>
                 <ul class="social">

@@ -45,7 +45,7 @@ module.exports = ({ items }) => {
       <div id="cart" class="container">
         <div class="columns">
           <div class="column"></div>
-          <div class="column is-four-fifths">
+          <div class="column is-four-fifths mx-4">
             <h3 class="subtitle"><b>Shopping Cart</b></h3>
             <div>
               ${renderedItems}
@@ -68,7 +68,7 @@ module.exports = ({ items }) => {
         <div id="cart" class="container">
           <div class="columns">
             <div class="column"></div>
-            <div class="column is-four-fifths">
+            <div class="column is-four-fifths mx-4">
               <h3 class="subtitle"><b>Shopping Cart</b></h3>
               <div class="total message is-info">
                   <h1 class="title is-info">There are no items in your cart</h1>
